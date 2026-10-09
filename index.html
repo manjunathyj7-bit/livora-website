@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Livora - find a place you can trust</title>
+  <meta name="description" content="Livora is an early-stage rental discovery app for India. See the real monthly cost, how fresh a listing is, and what is nearby, before you contact anyone.">
+  <meta name="theme-color" content="#0F766E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F766E'/%3E%3Cpath d='M18 18v28h26' fill='none' stroke='white' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f7faf9;
+      --surface: #ffffff;
+      --text: #14201e;
+      --muted: #52625f;
+      --line: #dbe5e2;
+      --brand: #0f766e;
+      --brand-soft: #d9f1ed;
+      --warn-soft: #fff4d6;
+      --warn-text: #6b4e00;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1514;
+        --surface: #142120;
+        --text: #e6f0ee;
+        --muted: #9db3af;
+        --line: #26403d;
+        --brand: #4fd1c5;
+        --brand-soft: #123a36;
+        --warn-soft: #3a2f0d;
+        --warn-text: #f3d98a;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+    header { padding: 20px 0; }
+    .logo { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.2rem; text-decoration: none; color: var(--text); }
+    .logo svg { width: 32px; height: 32px; }
+    .hero { padding: 48px 0 40px; }
+    .badge {
+      display: inline-block; padding: 4px 12px; border-radius: 999px;
+      background: var(--warn-soft); color: var(--warn-text);
+      font-size: 0.85rem; font-weight: 600; margin-bottom: 16px;
+    }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; margin: 0 0 16px; letter-spacing: -0.02em; }
+    .lead { font-size: 1.15rem; color: var(--muted); max-width: 640px; margin: 0 0 24px; }
+    .btn {
+      display: inline-block; padding: 12px 22px; border-radius: 12px;
+      background: var(--brand); color: #fff; text-decoration: none; font-weight: 600;
+    }
+    @media (prefers-color-scheme: dark) { .btn { color: #06201d; } }
+    .btn.ghost { background: transparent; color: var(--brand); border: 1px solid var(--line); margin-left: 8px; }
+    section { padding: 40px 0; }
+    h2 { font-size: 1.6rem; margin: 0 0 8px; letter-spacing: -0.01em; }
+    .sub { color: var(--muted); margin: 0 0 24px; max-width: 640px; }
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: 16px; padding: 20px;
+    }
+    .card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+    .cost { max-width: 420px; }
+    .cost .row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed var(--line); font-size: 0.98rem; }
+    .cost .row span:first-child { color: var(--muted); }
+    .cost .total { font-size: 1.3rem; font-weight: 700; border-bottom: none; padding-top: 14px; }
+    .cost .total span:first-child { color: var(--text); }
+    .note { font-size: 0.85rem; color: var(--muted); margin-top: 12px; }
+    .status { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    ul { margin: 8px 0 0; padding-left: 20px; color: var(--muted); }
+    li { margin: 4px 0; }
+    .tag { font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--brand-soft); color: var(--brand); }
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 0.9rem; }
+    a { color: var(--brand); }
+    :focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="logo" href="#">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0F766E"/><path d="M18 18v28h26" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Livora
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <div class="hero">
+        <span class="badge">Early development - not available to the public yet</span>
+        <h1>Find a place you can trust.</h1>
+        <p class="lead">Livora is a rental discovery app for India. Tell us where you need to live and what you can really afford, and we show nearby places with the real monthly cost, how fresh each listing is, and why it matches you.</p>
+        <a class="btn" href="#status">See what is built</a>
+        <a class="btn ghost" href="#cost">How we show cost</a>
+      </div>
+
+      <section aria-labelledby="why">
+        <h2 id="why">Built to reduce uncertainty</h2>
+        <p class="sub">Most listing sites make you guess. Livora is designed around the questions renters actually ask.</p>
+        <div class="grid">
+          <div class="card"><h3>The real monthly cost</h3><p>Rent plus maintenance plus estimated utilities, with deposit and move-in cost, so there are no surprises after you visit.</p></div>
+          <div class="card"><h3>Freshness you can see</h3><p>Every listing shows when the owner last confirmed it is available. Old ones are labelled, not passed off as current.</p></div>
+          <div class="card"><h3>Honest verification</h3><p>A listing is only called verified when a verification level has actually been set. Owners cannot give it to themselves.</p></div>
+          <div class="card"><h3>Nearby first</h3><p>Search by distance from where you want to live, with a budget range and the type of place you need.</p></div>
+        </div>
+      </section>
+
+      <section id="cost" aria-labelledby="costh">
+        <h2 id="costh">What a cost breakdown looks like</h2>
+        <p class="sub">An illustrative example, using test data from our development database. These are not real listings.</p>
+        <div class="card cost" role="group" aria-label="Example monthly cost breakdown">
+          <div class="row"><span>Rent</span><span>Rs 8,500</span></div>
+          <div class="row"><span>Maintenance (mandatory)</span><span>Rs 0</span></div>
+          <div class="row"><span>Utilities (estimated)</span><span>Rs 500</span></div>
+          <div class="row total"><span>Real monthly cost</span><span>Rs 9,000</span></div>
+          <div class="row"><span>Deposit</span><span>Rs 15,000</span></div>
+          <div class="row"><span>Estimated move-in cost</span><span>Rs 24,000</span></div>
+          <p class="note">Example only. Never pay a token or deposit before you have seen the property and verified the owner.</p>
+        </div>
+      </section>
+
+      <section id="status" aria-labelledby="statush">
+        <h2 id="statush">Where the project is today</h2>
+        <p class="sub">Livora is being built step by step. This list is kept honest: what works now, and what does not exist yet.</p>
+        <div class="status">
+          <div class="card">
+            <h3><span class="tag">Working</span></h3>
+            <ul>
+              <li>Sign up and sign in, with a tenant or owner choice</li>
+              <li>Profile and sign out</li>
+              <li>Home with area, budget and category filters</li>
+              <li>Listing cards with real monthly cost and freshness</li>
+              <li>Listing detail page with cost breakdown and safety notice</li>
+              <li>Owner flow: add a listing as draft or published</li>
+              <li>Secure database with row-level security</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3><span class="tag">Next</span></h3>
+            <ul>
+              <li>Use my current location when listing a property</li>
+              <li>Photo upload and gallery</li>
+              <li>Search with distance, and a map</li>
+              <li>Saved places and compare</li>
+              <li>Enquiries to owners and visit requests</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3><span class="tag">Later</span></h3>
+            <ul>
+              <li>Student mode and commute time</li>
+              <li>Owner and listing verification</li>
+              <li>Reports and moderation tools</li>
+              <li>Chat and notifications</li>
+              <li>Payments and agreements, only after trust basics are solid</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Livora is an independent project in development. Nothing on this page is a live listing, offer or service. Contact details will be added before launch.</p>
+    </div>
+  </footer>
+</body>
+</html>
